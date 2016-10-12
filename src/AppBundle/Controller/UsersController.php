@@ -35,4 +35,9 @@ class UsersController {
         
     }
     
+    public function getUserVerifAction($id)
+    {
+        
+    }
+    
 }
