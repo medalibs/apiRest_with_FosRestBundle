@@ -29,7 +29,7 @@ class GroupsController {
         
     }
     
-    public function PostGroupsAction()
+    public function postGroupsAction()
     {
         
     }

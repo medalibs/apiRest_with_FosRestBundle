@@ -30,7 +30,7 @@ class UsersController {
         
     }
     
-    public function PostUsersAction()
+    public function postUsersAction()
     {
         
     }
