@@ -14,12 +14,23 @@ namespace AppBundle\Controller;
  * @author mas
  */
 class UsersController {
+    
     public function getUsersAction()
     {
         
     }
     
     public function getUserAction($id)
+    {
+        
+    }
+    
+    public function putUsersAction()
+    {
+        
+    }
+    
+    public function PostUsersAction()
     {
         
     }
