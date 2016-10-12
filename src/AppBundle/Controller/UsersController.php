@@ -19,4 +19,9 @@ class UsersController {
         
     }
     
+    public function getUserAction($id)
+    {
+        
+    }
+    
 }
