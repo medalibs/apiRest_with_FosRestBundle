@@ -32,6 +32,11 @@ class UsersController extends Controller {
     
     public function getUserAction($id)
     {
+        $repository = $this->getDoctrine()->getRepository('AppBundle:User');
+
+        $user = $repository->find($id);
+        
+        return $user;
         
     }
     
