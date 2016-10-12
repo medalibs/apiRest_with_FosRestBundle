@@ -8,15 +8,25 @@
 
 namespace AppBundle\Controller;
 
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\RestBundle\Controller\Annotations\View;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+
 /**
  * Description of UsersController
  *
  * @author mas
  */
-class UsersController {
+class UsersController extends Controller {
     
     public function getUsersAction()
     {
+        $repository = $this->getDoctrine()->getRepository('AppBundle:User');
+
+        $users = $repository->findAll();
+        
+        return $users;
         
     }
     
