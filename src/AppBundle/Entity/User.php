@@ -61,6 +61,12 @@ class User
      * @ORM\Column(name="created_at", type="datetime")
      */
     private $createdAt;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Groupe")
+     * @ORM\JoinColumn(name="groupe_id", referencedColumnName="id")
+     */
+    private $groupe;
 
 
     /**
@@ -186,5 +192,29 @@ class User
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+    
+    /**
+     * Get groupe
+     *
+     * @return Groupe
+     */
+    public function getGroupe()
+    {
+        return $this->groupe;
+    }
+    
+    
+    /**
+     * Set groupe
+     *
+     * @param  $groupe
+     *
+     * @return User
+     */
+    public function setGroupe($groupe)
+    {
+        $this->groupe = $groupe;
+        return $this;
     }
 }
