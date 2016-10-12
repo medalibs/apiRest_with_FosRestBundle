@@ -67,6 +67,15 @@ class UsersController extends Controller {
         
         $user->setCreatedAt($createdAt);
         
+        $validator = $this->get('validator');
+        $errors = $validator->validate($user);
+
+        if (count($errors) > 0) {
+
+            $errorsString = (string) $errors;
+
+            return array("error" => $errorsString);
+        }
         
         $em = $this->getDoctrine()->getManager();
 
