@@ -10,8 +10,11 @@ namespace AppBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\Annotations\View;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use AppBundle\Entity\User;
+
 
 /**
  * Description of UsersController
@@ -45,8 +48,37 @@ class UsersController extends Controller {
         
     }
     
-    public function postUsersAction()
+    public function postUsersAction(Request $request)
     {
+        
+        
+        $jsonObject = json_decode($request->getContent(), true);
+        
+        
+        
+        $user = new User();
+        $user->setEmail($jsonObject['email']);
+        $user->setFirstName($jsonObject['firstname']);
+        $user->setLastName($jsonObject['lastname']);
+        $user->setEnabled($jsonObject['enabled']);
+        
+        $createdAt = new \DateTime();
+        $createdAt->format("Y-m-d H:i:s");
+        
+        $user->setCreatedAt($createdAt);
+        
+        
+        $em = $this->getDoctrine()->getManager();
+
+        
+        $em->persist($user);
+
+        
+        $em->flush();
+
+        return array('id' => $user->getId());
+        
+        
         
     }
     
