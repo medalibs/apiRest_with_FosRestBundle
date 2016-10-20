@@ -14,6 +14,8 @@ use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\Annotations\View;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use AppBundle\Entity\User;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+
 
 
 /**
@@ -23,6 +25,14 @@ use AppBundle\Entity\User;
  */
 class UsersController extends Controller {
     
+    /**
+     * Récuperation de la liste des utilisateurs.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="This is a description of your API method"
+     * )
+     */
     public function getUsersAction()
     {
         
@@ -34,6 +44,15 @@ class UsersController extends Controller {
         
     }
     
+    /**
+     * Récuperation informations d'un utilisateur.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="This is a description of your API method"
+     * )
+     */
+    
     public function getUserAction($id)
     {
         $repository = $this->getDoctrine()->getRepository('AppBundle:User');
@@ -44,10 +63,28 @@ class UsersController extends Controller {
         
     }
     
+    /**
+     * Modification utilisateur.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="This is a description of your API method"
+     * )
+     */
+    
     public function putUsersAction()
     {
         
     }
+    
+    /**
+     * Ajout d'un nouveau utilisateur.
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="This is a description of your API method"
+     * )
+     */
     
     public function postUsersAction(Request $request)
     {
@@ -90,6 +127,15 @@ class UsersController extends Controller {
         
     }
     
+    
+    /**
+     * Verifier un utilisateur
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="This is a description of your API method"
+     * )
+     */
     public function getUserVerifAction($id)
     {
         
