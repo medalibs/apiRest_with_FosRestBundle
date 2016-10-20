@@ -25,6 +25,7 @@ class UsersController extends Controller {
     
     public function getUsersAction()
     {
+        
         $repository = $this->getDoctrine()->getRepository('AppBundle:User');
 
         $users = $repository->findAll();
@@ -51,10 +52,8 @@ class UsersController extends Controller {
     public function postUsersAction(Request $request)
     {
         
-        
         $jsonObject = json_decode($request->getContent(), true);
-        
-        
+         
         
         $user = new User();
         $user->setEmail($jsonObject['email']);

@@ -9,3 +9,7 @@ users:
 groups:
     type:     rest
     resource: AppBundle\Controller\GroupsController
+    
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
