@@ -1,4 +1,5 @@
 {
+    "description" : "Api rest project with fosrestbundle",
     "name": "mas/api-rest",
     "license": "proprietary",
     "type": "project",
