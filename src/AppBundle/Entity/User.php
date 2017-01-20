@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use AppBundle\Annotation\StandardObject;
 /**
  * User
  *
@@ -31,6 +31,7 @@ class User
      *     message = "The email '{{ value }}' is not a valid email.",
      *     checkMX = true
      * )
+     * @StandardObject
      */
     private $email;
 
@@ -38,6 +39,7 @@ class User
      * @var string
      *
      * @ORM\Column(name="firstname", type="string", length=255)
+     * @StandardObject()
      */
     private $firstname;
 
@@ -59,6 +61,7 @@ class User
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime")
+     * @StandardObject
      */
     private $createdAt;
     
@@ -94,7 +97,7 @@ class User
 
     /**
      * Get email
-     *
+     * @StandardObject
      * @return string 
      */
     public function getEmail()
